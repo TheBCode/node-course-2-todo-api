@@ -8,8 +8,8 @@ var UserSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        minlength: 1,
         trim: true,
+        minlength: 1,
         unique: true,
         validate: {
             validator: validator.isEmail,
@@ -19,7 +19,7 @@ var UserSchema = new mongoose.Schema({
     password: {
         type: String,
         require: true,
-        minlength: 6,
+        minlength: 6
     },
     tokens: [{
         access: {
@@ -31,7 +31,6 @@ var UserSchema = new mongoose.Schema({
             required: true
         }
     }]
-
 });
 
 UserSchema.methods.toJSON = function () {
@@ -48,41 +47,37 @@ UserSchema.methods.generateAuthToken = function () {
 
     user.tokens.push({access, token});
 
-    return user.save().then(() =>{
+    return user.save().then(() => {
         return token;
     });
 };
 
 UserSchema.statics.findByToken = function (token) {
-  var User = this;
-  var decoded;
+    var User = this;
+    var decoded;
 
-  try {
-      decoded = jwt.verify(token, 'abc123');
-  } catch (e) {
-    // return new Promise((resolve, reject) => {
-    //     reject();
-    // });
-      return Promise.reject();
-  }
+    try {
+        decoded = jwt.verify(token, 'abc123');
+    } catch (e) {
+        return Promise.reject();
+    }
 
-  return User.findOne({
-    '_id': decoded._id,
-      'tokens.token': token,
-      'tokens.access': 'auth'
-
-  });
+    return User.findOne({
+        '_id': decoded._id,
+        'tokens.token': token,
+        'tokens.access': 'auth'
+    });
 };
 
-UserSchema.pre('save', function(next) {
+UserSchema.pre('save', function (next) {
     var user = this;
 
     if (user.isModified('password')) {
-        bcrypt.genSalt(10, (err, salt) =>{
-            bcrypt.hash(user.password, salt, (err, hash) =>{
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(user.password, salt, (err, hash) => {
                 user.password = hash;
                 next();
-            })
+            });
         });
     } else {
         next();
@@ -91,4 +86,4 @@ UserSchema.pre('save', function(next) {
 
 var User = mongoose.model('User', UserSchema);
 
-module.exports = {User};
+module.exports = {User}
