@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5a9d08e-c4af-4239-8b17-3c70bf9eac4c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/config/config.js" afterPath="$PROJECT_DIR$/server/config/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/models/user.js" afterPath="$PROJECT_DIR$/server/models/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/tests/seed/seed.js" afterPath="$PROJECT_DIR$/server/tests/seed/seed.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -368,7 +364,7 @@
       <workItem from="1499388266679" duration="3825000" />
       <workItem from="1499514023323" duration="3417000" />
       <workItem from="1499806359464" duration="7880000" />
-      <workItem from="1499831354768" duration="1813000" />
+      <workItem from="1499831354768" duration="2442000" />
     </task>
     <servers />
   </component>
@@ -381,7 +377,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60327000" />
+    <option name="totallyTimeSpent" value="60956000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
